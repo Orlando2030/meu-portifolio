@@ -8,9 +8,11 @@
   <style>
     body {
       scroll-behavior: smooth;
+      background-color: #121212;
+      color: #ffffff;
     }
     .hero {
-      background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('https://source.unsplash.com/1600x900/?technology') no-repeat center center/cover;
+      background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('https://source.unsplash.com/1600x900/?technology,dark') no-repeat center center/cover;
       color: white;
       height: 100vh;
       display: flex;
@@ -28,6 +30,35 @@
     .section-title {
       text-align: center;
       margin-bottom: 2rem;
+      color: #facc15;
+    }
+    .btn-warning {
+      background-color: #facc15;
+      border-color: #facc15;
+      color: #000;
+    }
+    .btn-warning:hover {
+      background-color: #eab308;
+      border-color: #eab308;
+    }
+    .bg-dark-section {
+      background-color: #1e1e1e;
+    }
+    .card {
+      background-color: #1f1f1f;
+      color: white;
+      border: none;
+    }
+    .card .btn-outline-dark {
+      border-color: #facc15;
+      color: #facc15;
+    }
+    .card .btn-outline-dark:hover {
+      background-color: #facc15;
+      color: #000;
+    }
+    footer {
+      background-color: #111;
     }
   </style>
 </head>
@@ -43,12 +74,12 @@
   </section>
 
   <!-- Sobre Mim -->
-  <section id="sobre" class="py-5">
+  <section id="sobre" class="py-5 bg-dark-section">
     <div class="container">
       <h2 class="section-title">Sobre Mim</h2>
       <div class="row align-items-center">
-        <div class="col-md-4">
-          <img src="https://github.com/SEU_USUARIO.png" alt="Foto" class="img-fluid rounded-circle">
+        <div class="col-md-4 text-center mb-3">
+          <img src="https://github.com/SEU_USUARIO.png" alt="Foto" class="img-fluid rounded-circle" width="150" height="150">
         </div>
         <div class="col-md-8">
           <p>Sou um desenvolvedor apaixonado por tecnologia e resolução de problemas. Com experiência em Python, JavaScript e ferramentas de análise de dados, crio soluções práticas e eficientes para o mundo digital.</p>
@@ -58,20 +89,20 @@
   </section>
 
   <!-- Habilidades -->
-  <section id="habilidades" class="py-5 bg-light">
+  <section id="habilidades" class="py-5">
     <div class="container">
       <h2 class="section-title">Habilidades</h2>
       <div class="row text-center">
         <div class="col-md-4">
-          <h4>Desenvolvimento Web</h4>
+          <h4 class="text-warning">Desenvolvimento Web</h4>
           <p>HTML, CSS, JavaScript, Bootstrap, Flask</p>
         </div>
         <div class="col-md-4">
-          <h4>Análise de Dados</h4>
+          <h4 class="text-warning">Análise de Dados</h4>
           <p>Python, Pandas, SQL, Power BI</p>
         </div>
         <div class="col-md-4">
-          <h4>Games e Interfaces</h4>
+          <h4 class="text-warning">Games e Interfaces</h4>
           <p>Pygame, Unity, UI/UX</p>
         </div>
       </div>
@@ -79,35 +110,35 @@
   </section>
 
   <!-- Portfólio -->
-  <section id="portfolio" class="py-5">
+  <section id="portfolio" class="py-5 bg-dark-section">
     <div class="container">
       <h2 class="section-title">Projetos</h2>
       <div class="row g-4">
         <div class="col-md-4">
-          <div class="card">
-            <img src="https://source.unsplash.com/400x300/?dashboard" class="card-img-top" alt="Projeto 1">
+          <div class="card h-100">
+            <img src="https://source.unsplash.com/400x300/?dashboard,dark" class="card-img-top" alt="Projeto 1">
             <div class="card-body">
-              <h5 class="card-title">Dashboard Financeiro</h5>
+              <h5 class="card-title text-warning">Dashboard Financeiro</h5>
               <p class="card-text">Visualização de dados interativa com Python e Plotly.</p>
               <a href="#" class="btn btn-outline-dark">Ver Projeto</a>
             </div>
           </div>
         </div>
         <div class="col-md-4">
-          <div class="card">
-            <img src="https://source.unsplash.com/400x300/?game" class="card-img-top" alt="Projeto 2">
+          <div class="card h-100">
+            <img src="https://source.unsplash.com/400x300/?game,code" class="card-img-top" alt="Projeto 2">
             <div class="card-body">
-              <h5 class="card-title">Jogo 2D com Python</h5>
+              <h5 class="card-title text-warning">Jogo 2D com Python</h5>
               <p class="card-text">Engine própria com edição visual e suporte a física.</p>
               <a href="#" class="btn btn-outline-dark">Ver Projeto</a>
             </div>
           </div>
         </div>
         <div class="col-md-4">
-          <div class="card">
-            <img src="https://source.unsplash.com/400x300/?schedule" class="card-img-top" alt="Projeto 3">
+          <div class="card h-100">
+            <img src="https://source.unsplash.com/400x300/?calendar,app,dark" class="card-img-top" alt="Projeto 3">
             <div class="card-body">
-              <h5 class="card-title">Agenda MEI</h5>
+              <h5 class="card-title text-warning">Agenda MEI</h5>
               <p class="card-text">Plataforma de controle financeiro e agendamento.</p>
               <a href="#" class="btn btn-outline-dark">Ver Projeto</a>
             </div>
@@ -118,20 +149,20 @@
   </section>
 
   <!-- Contato -->
-  <section id="contato" class="py-5 bg-light">
+  <section id="contato" class="py-5">
     <div class="container">
       <h2 class="section-title">Contato</h2>
       <div class="text-center">
-        <p>Email: <a href="mailto:seunome@email.com">seunome@email.com</a></p>
-        <p>LinkedIn: <a href="https://linkedin.com/in/seuperfil" target="_blank">/seuperfil</a></p>
-        <p>GitHub: <a href="https://github.com/seuperfil" target="_blank">/seuperfil</a></p>
+        <p>Email: <a href="mailto:seunome@email.com" class="text-warning">seunome@email.com</a></p>
+        <p>LinkedIn: <a href="https://linkedin.com/in/seuperfil" target="_blank" class="text-warning">/seuperfil</a></p>
+        <p>GitHub: <a href="https://github.com/seuperfil" target="_blank" class="text-warning">/seuperfil</a></p>
       </div>
     </div>
   </section>
 
   <!-- Footer -->
-  <footer class="bg-dark text-white text-center py-3">
-    <p>&copy; 2025 Seu Nome. Todos os direitos reservados.</p>
+  <footer class="text-center py-3">
+    <p class="mb-0">&copy; 2025 Seu Nome. Todos os direitos reservados.</p>
   </footer>
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
