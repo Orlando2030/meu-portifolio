@@ -1,57 +1,143 @@
-
+<!DOCTYPE html>
 <html lang="pt-br">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Seu Nome - Portfólio</title>
-  <link rel="stylesheet" href="style.css" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
 </head>
 <body>
-  <header>
+
+  <!-- Header com foto -->
+  <header class="bg-dark text-white text-center py-5">
+    <img src="img/minha-foto.jpg" class="rounded-circle mb-3" alt="Foto pessoal" width="150" height="150">
     <h1>Seu Nome</h1>
-    <p>Desenvolvedor e Analista de Dados</p>
+    <p class="lead">Desenvolvedor Full Stack & Analista de Dados</p>
   </header>
 
-  <nav>
-    <a href="#sobre">Sobre</a>
-    <a href="#projetos">Projetos</a>
-    <a href="#habilidades">Habilidades</a>
-    <a href="#contato">Contato</a>
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg navbar-light bg-light sticky-top">
+    <div class="container">
+      <a class="navbar-brand" href="#">Portfólio</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item"><a class="nav-link" href="#sobre">Sobre</a></li>
+          <li class="nav-item"><a class="nav-link" href="#projetos">Projetos</a></li>
+          <li class="nav-item"><a class="nav-link" href="#habilidades">Habilidades</a></li>
+          <li class="nav-item"><a class="nav-link" href="#contato">Contato</a></li>
+        </ul>
+      </div>
+    </div>
   </nav>
 
-  <section id="sobre">
-    <h2>Sobre mim</h2>
-    <p>Breve bio: quem é você, seus interesses e objetivos.</p>
+  <!-- Sobre -->
+  <section id="sobre" class="container my-5">
+    <h2>Sobre Mim</h2>
+    <p>Sou um desenvolvedor apaixonado por criar soluções em software, com experiência em Python, análise de dados, e desenvolvimento de jogos com Unity. Meu foco é construir aplicações robustas e visuais modernos.</p>
   </section>
 
-  <section id="projetos">
+  <!-- Projetos -->
+  <section id="projetos" class="container my-5">
     <h2>Projetos</h2>
-    <div class="projeto">
-      <h3>Nome do Projeto</h3>
-      <p>Descrição breve. Tecnologias usadas.</p>
-      <a href="https://link-projeto">Ver projeto</a>
+    <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
+
+      <div class="col">
+        <div class="card h-100">
+          <img src="img/projeto1.jpg" class="card-img-top" alt="Projeto 1">
+          <div class="card-body">
+            <h5 class="card-title">Dashboard Financeiro</h5>
+            <p class="card-text">Visualização interativa de dados financeiros com Plotly e Dash.</p>
+            <a href="#" class="btn btn-primary">Ver Projeto</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="col">
+        <div class="card h-100">
+          <img src="img/projeto2.jpg" class="card-img-top" alt="Projeto 2">
+          <div class="card-body">
+            <h5 class="card-title">Jogo 2D em Python</h5>
+            <p class="card-text">Engine 2D com editor visual feita em Python e Pygame.</p>
+            <a href="#" class="btn btn-primary">Ver Projeto</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="col">
+        <div class="card h-100">
+          <img src="img/projeto3.jpg" class="card-img-top" alt="Projeto 3">
+          <div class="card-body">
+            <h5 class="card-title">Sistema de Agendamentos</h5>
+            <p class="card-text">Aplicação web para controle de horários e pagamentos de MEIs.</p>
+            <a href="#" class="btn btn-primary">Ver Projeto</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="col">
+        <div class="card h-100">
+          <img src="img/projeto4.jpg" class="card-img-top" alt="Projeto 4">
+          <div class="card-body">
+            <h5 class="card-title">Game estilo PvZ</h5>
+            <p class="card-text">Clone do Plants vs. Zombies com personagens personalizados.</p>
+            <a href="#" class="btn btn-primary">Ver Projeto</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="col">
+        <div class="card h-100">
+          <img src="img/projeto5.jpg" class="card-img-top" alt="Projeto 5">
+          <div class="card-body">
+            <h5 class="card-title">App de Notas Pessoais</h5>
+            <p class="card-text">Aplicativo responsivo com local storage e modo escuro.</p>
+            <a href="#" class="btn btn-primary">Ver Projeto</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="col">
+        <div class="card h-100">
+          <img src="img/projeto6.jpg" class="card-img-top" alt="Projeto 6">
+          <div class="card-body">
+            <h5 class="card-title">Painel de Controle de Robôs</h5>
+            <p class="card-text">Interface em Unity para gerenciar robôs em batalhas virtuais.</p>
+            <a href="#" class="btn btn-primary">Ver Projeto</a>
+          </div>
+        </div>
+      </div>
+
     </div>
-    <!-- Adicione mais projetos -->
   </section>
 
-  <section id="habilidades">
-    <h2>Habilidades</h2>
-    <ul>
-      <li>Python, JavaScript, SQL</li>
-      <li>Power BI, Pandas, Scikit-learn</li>
-      <li>React, Flask, Django, etc.</li>
-    </ul>
+  <!-- Habilidades -->
+  <section id="habilidades" class="bg-light py-5">
+    <div class="container">
+      <h2>Habilidades</h2>
+      <ul class="list-group list-group-flush">
+        <li class="list-group-item">Python, JavaScript, C#</li>
+        <li class="list-group-item">Pygame, Unity, Flask, Django</li>
+        <li class="list-group-item">SQL, Pandas, Dash, Power BI</li>
+      </ul>
+    </div>
   </section>
 
-  <section id="contato">
+  <!-- Contato -->
+  <section id="contato" class="container my-5">
     <h2>Contato</h2>
     <p>Email: seuemail@example.com</p>
-    <p>LinkedIn: <a href="https://linkedin.com/in/seuperfil">Perfil</a></p>
-    <p>GitHub: <a href="https://github.com/seuperfil">Repositórios</a></p>
+    <p>LinkedIn: <a href="https://linkedin.com/in/seuperfil" target="_blank">Perfil</a></p>
+    <p>GitHub: <a href="https://github.com/seuperfil" target="_blank">Repositórios</a></p>
   </section>
 
-  <footer>
-    <p>© 2025 Seu Nome</p>
+  <!-- Footer -->
+  <footer class="bg-dark text-white text-center py-3">
+    <p>&copy; 2025 Seu Nome. Todos os direitos reservados.</p>
   </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
