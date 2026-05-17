@@ -1,20 +1,24 @@
+
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Orlando Santos de Oliveira | Portfólio de Data Science & Analytics</title>
+  <!-- Bootstrap 5.3.0 -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Font Awesome para Ícones Profissionais -->
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+  <!-- Google Fonts - Inter -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
   <style>
     :root {
-      --bg-main: #0f172a;       /* Slate 900 - Fundo principal ultra-moderno */
-      --bg-card: #1e293b;       /* Slate 800 - Fundo dos cards e seções alternadas */
-      --accent: #f59e0b;        /* Amber 500 - Cor de destaque tecnológica */
+      --bg-main: #0f172a;       /* Slate 900 - Fundo principal */
+      --bg-card: #1e293b;       /* Slate 800 - Fundo dos cards */
+      --accent: #f59e0b;        /* Amber 500 - Destaque tecnológico */
       --accent-hover: #d97706;  /* Amber 600 */
       --text-main: #f8fafc;     /* Slate 50 */
       --text-muted: #94a3b8;    /* Slate 400 */
@@ -30,7 +34,7 @@
 
     /* Navbar Customizada */
     .navbar {
-      background-color: rgba(15, 23, 42, 0.8) !important;
+      background-color: rgba(15, 23, 42, 0.9) !important;
       backdrop-filter: blur(12px);
       -webkit-backdrop-filter: blur(12px);
       border-bottom: 1px solid rgba(255, 255, 255, 0.05);
@@ -106,6 +110,8 @@
       border-radius: 6px;
       border: none;
       transition: all 0.2s ease;
+      text-decoration: none;
+      display: inline-block;
     }
     .btn-custom-primary:hover {
       background-color: var(--accent-hover);
@@ -147,8 +153,8 @@
       color: var(--accent);
     }
 
-    /* Cards de Projetos */
-    .card-project {
+    /* Cards */
+    .card-project, .card-feature {
       background-color: var(--bg-card);
       border: 1px solid rgba(255, 255, 255, 0.05);
       border-radius: 12px;
@@ -156,7 +162,7 @@
       transition: all 0.3s ease;
       padding: 2rem;
     }
-    .card-project:hover {
+    .card-project:hover, .card-feature:hover {
       transform: translateY(-5px);
       border-color: rgba(245, 158, 11, 0.25);
       box-shadow: 0 10px 30px -15px rgba(0, 0, 0, 0.5);
@@ -166,19 +172,41 @@
       color: var(--accent);
       margin-bottom: 1.5rem;
     }
-    .card-project h3 {
-      font-size: 1.35rem;
-      font-weight: 600;
-      margin-bottom: 1rem;
-      letter-spacing: -0.01em;
+    
+    /* Timeline de Formação */
+    .timeline {
+      border-left: 2px solid rgba(255, 255, 255, 0.1);
+      padding-left: 2rem;
+      margin-left: 1rem;
+      position: relative;
     }
-    .card-project p {
-      color: var(--text-muted);
+    .timeline-item {
+      position: relative;
+      margin-bottom: 2rem;
+    }
+    .timeline-item::before {
+      content: '';
+      position: absolute;
+      left: -2.4rem;
+      top: 0.25rem;
+      width: 14px;
+      height: 14px;
+      background-color: var(--accent);
+      border-radius: 50%;
+      border: 3px solid var(--bg-main);
+    }
+    .timeline-title {
+      font-weight: 600;
+      font-size: 1.15rem;
+      color: var(--text-main);
+    }
+    .timeline-subtitle {
+      color: var(--accent);
+      font-weight: 500;
       font-size: 0.95rem;
-      line-height: 1.6;
     }
 
-    /* Sessão Alternada Background */
+    /* Sessão Alternada */
     .bg-alternate {
       background-color: var(--bg-card);
     }
@@ -197,6 +225,7 @@
 </head>
 <body>
 
+  <!-- Menu de Navegação -->
   <nav class="navbar navbar-expand-lg sticky-top navbar-dark py-3">
     <div class="container">
       <a class="navbar-brand font-weight-bold" href="#home">
@@ -207,9 +236,10 @@
       </button>
       <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
         <ul class="navbar-nav gap-2">
-          <li class="nav-item"><a class="nav-link" href="#home">Home</a></li>
-          <li class="nav-item"><a class="nav-link" href="#sobre">Sobre Mim</a></li>
+          <li class="nav-item"><a class="nav-link" href="#sobre">Sobre</a></li>
+          <li class="nav-item"><a class="nav-link" href="#formacao">Formação</a></li>
           <li class="nav-item"><a class="nav-link" href="#habilidades">Expertise</a></li>
+          <li class="nav-item"><a class="nav-link" href="#inovacao">IA & Games</a></li>
           <li class="nav-item"><a class="nav-link" href="#portfolio">Projetos</a></li>
           <li class="nav-item"><a class="nav-link" href="#contato">Contato</a></li>
         </ul>
@@ -217,47 +247,110 @@
     </div>
   </nav>
 
+  <!-- Hero Section -->
   <section class="hero" id="home">
-    <div class="container" data-aos="fade-up">
+    <div class="container">
       <h1 class="display-4">Orlando Santos de Oliveira</h1>
-      <p class="lead">Especialista em Engenharia de Dados, Automação de Processos & Inteligência Imobiliária</p>
-      <div class="d-flex justify-content-center gap-3">
-        <a href="#portfolio" class="btn btn-custom-primary">Explorar Projetos</a>
-        <a href="#contato" class="btn btn-custom-outline">Entrar em Contato</a>
+      <p class="lead">Engenheiro de Dados, Especialista em Analytics & Inteligência de Mercado</p>
+      <div class="d-flex justify-content-center gap-3 mt-4">
+        <a href="#portfolio" class="btn-custom-primary">Explorar Projetos</a>
+        <a href="#contato" class="btn-custom-outline">Entrar em Contato</a>
       </div>
     </div>
   </section>
 
+  <!-- Sobre Mim -->
   <section id="sobre" class="py-5 bg-alternate">
     <div class="container py-4">
       <h2 class="section-title">Sobre Mim</h2>
       <div class="row align-items-center g-5">
         <div class="col-md-4 text-center">
-          <div class="position-relative d-inline-block">
-            <img src="https://github.com/orlando2030.png" alt="Orlando Santos de Oliveira" class="img-fluid rounded-circle border border-secondary shadow-lg p-2" style="background-color: rgba(255,255,255,0.05); max-width: 220px;">
-          </div>
+          <img src="https://github.com/orlando2030.png" alt="Orlando Santos de Oliveira" class="img-fluid rounded-circle border border-secondary shadow-lg p-2" style="background-color: rgba(255,255,255,0.05); max-width: 220px;">
         </div>
         <div class="col-md-8">
           <p class="lead text-white-50">
-            Sou pós-graduando em <strong>Data Science e Analytics pela USP/Esalq</strong>, focado em transformar dados brutos e volumosos em vantagens competitivas de mercado através de arquiteturas modernas e automações ponta a ponta.
+            Sou um profissional dedicado a transformar dados complexos em soluções estratégicas, combinando visão analítica de alto nível com forte capacidade de engenharia de software corporativa.
           </p>
           <p>
-            Minha atuação profissional concentra-se no desenvolvimento de pipelines avançados de captação de dados (Web Scraping escalável), limpeza, tratamento estatístico e modelagem de precificação. Desenvolvo ferramentas de inteligência analítica que realizam o mapeamento completo e preciso de dinâmicas mercadológicas regionais.
+            Minha atuação principal está ancorada na área de <strong>Data Science e Analytics</strong>. Construo a arquitetura de dados de ponta a ponta: desenvolvo pipelines avançados de Web Scraping, executo limpezas estruturais de alto volume e crio modelos de precificação focados em inteligência de mercado imobiliário e corporativo.
           </p>
           <p class="mb-0">
-            Combinando sólida experiência em infraestrutura de banco de dados SQL estruturado e programação voltada para microsserviços, tenho como foco principal a entrega de soluções SaaS robustas, que automatizam tarefas complexas de monitoramento e análise preditiva de negócios.
+            Com sólida experiência em bancos de dados relacionais e na liderança de projetos orientados a resultados, meu principal objetivo é garantir que as áreas de negócio possuam dados limpos, automatizados e acionáveis para sustentar decisões estratégicas em níveis executivos.
           </p>
         </div>
       </div>
     </div>
   </section>
 
-  <section id="habilidades" class="py-5">
+  <!-- Formação e Certificações -->
+  <section id="formacao" class="py-5">
     <div class="container py-4">
-      <h2 class="section-title">Expertise Técnica</h2>
+      <div class="row g-5">
+        
+        <!-- Acadêmico -->
+        <div class="col-md-6">
+          <h3 class="mb-4 text-warning"><i class="fa-solid fa-graduation-cap me-2"></i> Formação Acadêmica</h3>
+          <div class="timeline mt-4">
+            <div class="timeline-item">
+              <div class="timeline-title">MBA em Data Science e Analytics</div>
+              <div class="timeline-subtitle">USP/Esalq</div>
+              <p class="text-muted mt-2 mb-0">Em andamento</p>
+            </div>
+            <div class="timeline-item">
+              <div class="timeline-title">Especialização em Gerenciamento de Projetos</div>
+              <div class="timeline-subtitle">FATEC-SP | Ênfase em PMI</div>
+            </div>
+            <div class="timeline-item">
+              <div class="timeline-title">Bacharelado em Ciência da Computação</div>
+              <div class="timeline-subtitle">Universidade UNG</div>
+            </div>
+            <div class="timeline-item">
+              <div class="timeline-title">Tecnólogo em Projetos</div>
+              <div class="timeline-subtitle">FATEC-SP</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Certificações -->
+        <div class="col-md-6">
+          <h3 class="mb-4 text-warning"><i class="fa-solid fa-certificate me-2"></i> Licenças e Certificações</h3>
+          <div class="card-feature mt-4">
+            <ul class="list-unstyled mb-0">
+              <li class="mb-3 border-bottom border-secondary pb-3">
+                <strong class="d-block text-white">Certified SCRUM Master - CSM</strong>
+                <span class="text-muted small">Scrum Alliance</span>
+              </li>
+              <li class="mb-3 border-bottom border-secondary pb-3">
+                <strong class="d-block text-white">REST com ASP.NET Core WebAPI</strong>
+                <span class="text-muted small">desenvolvedor.io</span>
+              </li>
+              <li class="mb-3 border-bottom border-secondary pb-3">
+                <strong class="d-block text-white">Dominando o ASP.NET MVC Core</strong>
+                <span class="text-muted small">desenvolvedor.io</span>
+              </li>
+              <li class="mb-3 border-bottom border-secondary pb-3">
+                <strong class="d-block text-white">Desenvolvimento SPA com Angular</strong>
+                <span class="text-muted small">desenvolvedor.io</span>
+              </li>
+              <li class="mb-0">
+                <strong class="d-block text-white">Iniciando com ASP.NET Core</strong>
+                <span class="text-muted small">desenvolvedor.io</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Expertise Corporativa -->
+  <section id="habilidades" class="py-5 bg-alternate">
+    <div class="container py-4">
+      <h2 class="section-title">Expertise em Dados & Analytics</h2>
       <div class="row g-4 text-center mt-2">
         <div class="col-md-4">
-          <div class="p-4 rounded-3 h-100" style="background-color: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.03);">
+          <div class="card-feature">
             <i class="fa-solid fa-gears text-warning mb-3" style="font-size: 2rem;"></i>
             <h4 class="h5 mb-3 text-warning">Engenharia & Automação</h4>
             <div class="d-flex flex-wrap justify-content-center">
@@ -265,33 +358,29 @@
               <span class="tech-badge">Playwright</span>
               <span class="tech-badge">Web Scraping</span>
               <span class="tech-badge">Pipelines ETL</span>
-              <span class="tech-badge">Bots Automáticos</span>
             </div>
           </div>
         </div>
         <div class="col-md-4">
-          <div class="p-4 rounded-3 h-100" style="background-color: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.03);">
+          <div class="card-feature">
             <i class="fa-solid fa-chart-line text-warning mb-3" style="font-size: 2rem;"></i>
-            <h4 class="h5 mb-3 text-warning">Ciência de Dados & Analytics</h4>
+            <h4 class="h5 mb-3 text-warning">Ciência de Dados</h4>
             <div class="d-flex flex-wrap justify-content-center">
               <span class="tech-badge">Pandas</span>
-              <span class="tech-badge">Modelagem de Dados</span>
-              <span class="tech-badge">Análise Estatística</span>
-              <span class="tech-badge">Precificação Preditiva</span>
+              <span class="tech-badge">Modelagem Preditiva</span>
+              <span class="tech-badge">Estatística</span>
               <span class="tech-badge">Data Cleaning</span>
             </div>
           </div>
         </div>
         <div class="col-md-4">
-          <div class="p-4 rounded-3 h-100" style="background-color: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.03);">
+          <div class="card-feature">
             <i class="fa-solid fa-database text-warning mb-3" style="font-size: 2rem;"></i>
             <h4 class="h5 mb-3 text-warning">Infraestrutura & Bancos</h4>
             <div class="d-flex flex-wrap justify-content-center">
               <span class="tech-badge">SQL Avançado</span>
               <span class="tech-badge">Modelagem Relacional</span>
               <span class="tech-badge">Otimização de Queries</span>
-              <span class="tech-badge">Agregações Complexas</span>
-              <span class="tech-badge">Git & Versionamento</span>
             </div>
           </div>
         </div>
@@ -299,17 +388,61 @@
     </div>
   </section>
 
+  <!-- Laboratório de IA e Games -->
+  <section id="inovacao" class="py-5">
+    <div class="container py-4">
+      <h2 class="section-title">Laboratório & Inovação</h2>
+      <p class="text-center text-muted mb-5" style="max-width: 700px; margin: 0 auto;">
+        Além do ecossistema de dados corporativo, dedico-me à pesquisa e aplicação prática de tecnologias emergentes. Desenvolvo lógicas complexas no ambiente de jogos e integro APIs generativas para a criação de assistentes inteligentes via linha de comando.
+      </p>
+
+      <div class="row justify-content-center g-4">
+        <!-- Card IA -->
+        <div class="col-md-5">
+          <div class="card-feature text-center h-100" style="border-top: 4px solid var(--accent);">
+            <i class="fa-solid fa-network-wired text-warning mb-3" style="font-size: 2.5rem;"></i>
+            <h3 class="h4 mb-3">Inteligência Artificial</h3>
+            <p class="text-muted small mb-4">Integração de Modelos de Linguagem e automação de fluxos conversacionais via terminal e scripts independentes.</p>
+            <div class="d-flex flex-wrap justify-content-center">
+              <span class="tech-badge">Gemini API</span>
+              <span class="tech-badge">IA Generativa</span>
+              <span class="tech-badge">Ferramentas CLI</span>
+              <span class="tech-badge">Prompt Engineering</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card Games -->
+        <div class="col-md-5">
+          <div class="card-feature text-center h-100" style="border-top: 4px solid var(--accent);">
+            <i class="fa-solid fa-gamepad text-warning mb-3" style="font-size: 2.5rem;"></i>
+            <h3 class="h4 mb-3">Game Development</h3>
+            <p class="text-muted small mb-4">Desenvolvimento de mecânicas físicas, colisões, arquitetura de sistemas e design de jogos 2D/3D utilizando motores estruturados.</p>
+            <div class="d-flex flex-wrap justify-content-center">
+              <span class="tech-badge">Unity 5</span>
+              <span class="tech-badge">C#</span>
+              <span class="tech-badge">Pygame</span>
+              <span class="tech-badge">Game Design</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Portfólio / Projetos Atuais -->
   <section id="portfolio" class="py-5 bg-alternate">
     <div class="container py-4">
       <h2 class="section-title">Projetos em Destaque</h2>
       <div class="row g-4 mt-2">
         
+        <!-- Projeto 1 -->
         <div class="col-md-4">
           <div class="card-project d-flex flex-column justify-content-between">
             <div>
               <div class="project-icon"><i class="fa-solid fa-city"></i></div>
               <h3>DataCasa Solutions</h3>
-              <p>Desenvolvimento de uma plataforma SaaS de inteligência e inteligência de mercado voltada ao setor imobiliário. A ferramenta realiza a consolidação e análise automatizada de anúncios em larga escala para extração de tendências comerciais e oportunidades de investimento.</p>
+              <p>Plataforma SaaS de inteligência de mercado imobiliário. Consolidação e análise automatizada de anúncios em larga escala para extração de tendências comerciais e identificação de oportunidades de investimento.</p>
             </div>
             <div class="mt-3">
               <span class="badge bg-secondary mb-3 me-1">SaaS</span>
@@ -318,12 +451,13 @@
           </div>
         </div>
 
+        <!-- Projeto 2 -->
         <div class="col-md-4">
           <div class="card-project d-flex flex-column justify-content-between">
             <div>
               <div class="project-icon"><i class="fa-solid fa-diagram-project"></i></div>
-              <h3>Pipeline ETL & Extração Dedicada</h3>
-              <p>Arquitetura de dados parametrizada por cidades capaz de gerenciar e atualizar de forma autônoma mais de 10.000 registros a cada hora. O motor utiliza Playwright e Pandas para limpeza profunda, auditoria de URLs ativas e inteligência para diferenciar listagens diretas ("particulares") de agências imobiliárias, extraindo precisamente IPTU e condomínios.</p>
+              <h3>Pipeline ETL Dedicado</h3>
+              <p>Arquitetura autônoma gerenciando mais de 10.000 registros de imóveis por hora. Utiliza Playwright para varredura, auditoria de URLs e extração cirúrgica de valores (IPTU/Condomínio), distinguindo anúncios diretos de imobiliárias.</p>
             </div>
             <div class="mt-3">
               <span class="badge bg-secondary mb-3 me-1">Playwright</span>
@@ -333,16 +467,17 @@
           </div>
         </div>
 
+        <!-- Projeto 3 -->
         <div class="col-md-4">
           <div class="card-project d-flex flex-column justify-content-between">
             <div>
               <div class="project-icon"><i class="fa-solid fa-bolt"></i></div>
-              <h3>Ecosistema de Alertas e Mensageria</h3>
-              <p>Criação de microsserviço assíncrono integrado a bots de comunicação para disparo de oportunidades críticas de mercado e monitoramento operacional. O sistema opera sob rotinas programadas diárias, convertendo logs analíticos complexos em alertas imediatos e funcionais na ponta.</p>
+              <h3>Ecossistema de Alertas</h3>
+              <p>Microsserviço integrado à API do Telegram para disparo programado de oportunidades de mercado. Converte a análise preditiva do banco de dados em notificações em tempo real na ponta final.</p>
             </div>
             <div class="mt-3">
               <span class="badge bg-secondary mb-3 me-1">Telegram API</span>
-              <span class="badge bg-secondary mb-3 me-1">Automation</span>
+              <span class="badge bg-secondary mb-3 me-1">Automação</span>
               <span class="badge bg-secondary mb-3">Cron Jobs</span>
             </div>
           </div>
@@ -352,12 +487,11 @@
     </div>
   </section>
 
+  <!-- Contato -->
   <section id="contato" class="py-5">
     <div class="container py-4">
       <h2 class="section-title">Vamos Conectar?</h2>
-      <p class="text-center text-muted mb-5" style="max-width: 600px; margin: 0 auto;">Estou sempre aberto a discussões sobre arquitetura de dados, engenharia analítica, novas automações ou oportunidades de projetos inovadores.</p>
-      
-      <div class="row justify-content-center text-center g-4">
+      <div class="row justify-content-center text-center g-4 mt-2">
         <div class="col-6 col-md-3">
           <a href="mailto:orlando2030@gmail.com" class="btn-custom-outline w-100 py-3">
             <i class="fa-solid fa-envelope fa-2x mb-2 d-block"></i>
@@ -380,12 +514,14 @@
     </div>
   </section>
 
+  <!-- Rodapé -->
   <footer class="text-center py-4">
     <div class="container">
-      <p class="mb-0">&copy; 2026 Orlando Santos de Oliveira. Desenvolvido com foco em Ciência de Dados & Analytics.</p>
+      <p class="mb-0">&copy; 2026 Orlando Santos de Oliveira. Desenvolvido com foco em Ciência de Dados, IA & Analytics.</p>
     </div>
   </footer>
 
+  <!-- Bootstrap Bundle JS -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
