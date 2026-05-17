@@ -3,153 +3,295 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Orlando - Portfólio</title>
+  <title>Orlando Santos de Oliveira | Portfólio de Data Science & Analytics</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
   <style>
-    body {
-      scroll-behavior: smooth;
-      background-color: #121212;
-      color: #ffffff;
+    :root {
+      --bg-main: #0f172a;       /* Slate 900 - Fundo principal ultra-moderno */
+      --bg-card: #1e293b;       /* Slate 800 - Fundo dos cards e seções alternadas */
+      --accent: #f59e0b;        /* Amber 500 - Cor de destaque tecnológica */
+      --accent-hover: #d97706;  /* Amber 600 */
+      --text-main: #f8fafc;     /* Slate 50 */
+      --text-muted: #94a3b8;    /* Slate 400 */
     }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      scroll-behavior: smooth;
+      background-color: var(--bg-main);
+      color: var(--text-main);
+      letter-spacing: -0.01em;
+    }
+
+    /* Navbar Customizada */
+    .navbar {
+      background-color: rgba(15, 23, 42, 0.8) !important;
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    }
+    .navbar-brand, .nav-link {
+      color: var(--text-main) !important;
+      font-weight: 500;
+    }
+    .nav-link:hover {
+      color: var(--accent) !important;
+    }
+
+    /* Hero Section */
     .hero {
-      background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('https://source.unsplash.com/1600x900/?technology,dark') no-repeat center center/cover;
-      color: white;
+      position: relative;
       height: 100vh;
       display: flex;
       align-items: center;
       justify-content: center;
       text-align: center;
+      background: radial-gradient(circle at top right, rgba(245, 158, 11, 0.08), transparent 45%),
+                  radial-gradient(circle at bottom left, rgba(30, 41, 59, 0.6), var(--bg-main));
+      overflow: hidden;
+    }
+    .hero::before {
+      content: '';
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      opacity: 0.03;
+      background-image: radial-gradient(#ffffff 1px, transparent 1px);
+      background-size: 24px 24px;
+      pointer-events: none;
     }
     .hero h1 {
-      font-size: 3rem;
-      font-weight: bold;
+      font-size: 3.5rem;
+      font-weight: 700;
+      letter-spacing: -0.03em;
+      margin-bottom: 1rem;
     }
     .hero p {
-      font-size: 1.3rem;
+      font-size: 1.25rem;
+      color: var(--text-muted);
+      max-width: 700px;
+      margin: 0 auto 2rem auto;
     }
+
+    /* Títulos de Seção */
     .section-title {
+      font-size: 2.25rem;
+      font-weight: 700;
+      letter-spacing: -0.02em;
       text-align: center;
-      margin-bottom: 2rem;
-      color: #facc15;
+      margin-bottom: 3.5rem;
+      position: relative;
     }
-    .btn-warning {
-      background-color: #facc15;
-      border-color: #facc15;
-      color: #000;
+    .section-title::after {
+      content: '';
+      display: block;
+      width: 50px;
+      height: 4px;
+      background-color: var(--accent);
+      margin: 0.75rem auto 0 auto;
+      border-radius: 2px;
     }
-    .btn-warning:hover {
-      background-color: #eab308;
-      border-color: #eab308;
-    }
-    .bg-dark-section {
-      background-color: #1e1e1e;
-    }
-    .card {
-      background-color: #1f1f1f;
-      color: white;
+
+    /* Botões */
+    .btn-custom-primary {
+      background-color: var(--accent);
+      color: #000000;
+      font-weight: 600;
+      padding: 0.75rem 2rem;
+      border-radius: 6px;
       border: none;
+      transition: all 0.2s ease;
     }
-    .card .btn-outline-dark {
-      border-color: #facc15;
-      color: #facc15;
+    .btn-custom-primary:hover {
+      background-color: var(--accent-hover);
+      color: #000000;
+      transform: translateY(-2px);
     }
-    .card .btn-outline-dark:hover {
-      background-color: #facc15;
-      color: #000;
+    .btn-custom-outline {
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      color: var(--text-main);
+      font-weight: 500;
+      padding: 0.6rem 1.5rem;
+      border-radius: 6px;
+      transition: all 0.2s ease;
+      text-decoration: none;
+      display: inline-block;
     }
+    .btn-custom-outline:hover {
+      border-color: var(--accent);
+      color: var(--accent);
+      background-color: rgba(245, 158, 11, 0.05);
+    }
+
+    /* Badges de Habilidades */
+    .tech-badge {
+      background-color: rgba(255, 255, 255, 0.04);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      color: var(--text-main);
+      padding: 0.5rem 1rem;
+      font-size: 0.9rem;
+      font-weight: 500;
+      border-radius: 20px;
+      margin: 0.35rem;
+      display: inline-block;
+      transition: all 0.2s ease;
+    }
+    .tech-badge:hover {
+      border-color: var(--accent);
+      background-color: rgba(245, 158, 11, 0.05);
+      color: var(--accent);
+    }
+
+    /* Cards de Projetos */
+    .card-project {
+      background-color: var(--bg-card);
+      border: 1px solid rgba(255, 255, 255, 0.05);
+      border-radius: 12px;
+      height: 100%;
+      transition: all 0.3s ease;
+      padding: 2rem;
+    }
+    .card-project:hover {
+      transform: translateY(-5px);
+      border-color: rgba(245, 158, 11, 0.25);
+      box-shadow: 0 10px 30px -15px rgba(0, 0, 0, 0.5);
+    }
+    .project-icon {
+      font-size: 2.5rem;
+      color: var(--accent);
+      margin-bottom: 1.5rem;
+    }
+    .card-project h3 {
+      font-size: 1.35rem;
+      font-weight: 600;
+      margin-bottom: 1rem;
+      letter-spacing: -0.01em;
+    }
+    .card-project p {
+      color: var(--text-muted);
+      font-size: 0.95rem;
+      line-height: 1.6;
+    }
+
+    /* Sessão Alternada Background */
+    .bg-alternate {
+      background-color: var(--bg-card);
+    }
+    .bg-alternate .card-project {
+      background-color: var(--bg-main);
+    }
+
+    /* Rodapé */
     footer {
-      background-color: #111;
+      background-color: #090d16;
+      border-top: 1px solid rgba(255, 255, 255, 0.05);
+      color: var(--text-muted);
+      font-size: 0.9rem;
     }
   </style>
 </head>
 <body>
 
-  <!-- Hero Section -->
-  <section class="hero" id="home">
+  <nav class="navbar navbar-expand-lg sticky-top navbar-dark py-3">
     <div class="container">
-      <h1>Olá, sou <span class="text-warning">Orlando Santos de Oliveira</span></h1>
-      <p class="lead">Desenvolvedor e Especialista em Dados</p>
-      <a href="#contato" class="btn btn-warning mt-3">Fale Comigo</a>
+      <a class="navbar-brand font-weight-bold" href="#home">
+        <i class="fa-solid fa-chart-network text-warning me-2"></i>Orlando<span class="text-warning">.</span>Analytics
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+        <ul class="navbar-nav gap-2">
+          <li class="nav-item"><a class="nav-link" href="#home">Home</a></li>
+          <li class="nav-item"><a class="nav-link" href="#sobre">Sobre Mim</a></li>
+          <li class="nav-item"><a class="nav-link" href="#habilidades">Expertise</a></li>
+          <li class="nav-item"><a class="nav-link" href="#portfolio">Projetos</a></li>
+          <li class="nav-item"><a class="nav-link" href="#contato">Contato</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <section class="hero" id="home">
+    <div class="container" data-aos="fade-up">
+      <h1 class="display-4">Orlando Santos de Oliveira</h1>
+      <p class="lead">Especialista em Engenharia de Dados, Automação de Processos & Inteligência Imobiliária</p>
+      <div class="d-flex justify-content-center gap-3">
+        <a href="#portfolio" class="btn btn-custom-primary">Explorar Projetos</a>
+        <a href="#contato" class="btn btn-custom-outline">Entrar em Contato</a>
+      </div>
     </div>
   </section>
 
-  <!-- Sobre Mim -->
-<!-- Sobre Mim -->
-  <section id="sobre" class="py-5 bg-dark-section">
-    <div class="container">
+  <section id="sobre" class="py-5 bg-alternate">
+    <div class="container py-4">
       <h2 class="section-title">Sobre Mim</h2>
-      <div class="row align-items-center">
-        <div class="col-md-4 text-center mb-3">
-          <img src="https://github.com/orlando2030.png" alt="Foto" class="img-fluid rounded-circle" width="150" height="150">
+      <div class="row align-items-center g-5">
+        <div class="col-md-4 text-center">
+          <div class="position-relative d-inline-block">
+            <img src="https://github.com/orlando2030.png" alt="Orlando Santos de Oliveira" class="img-fluid rounded-circle border border-secondary shadow-lg p-2" style="background-color: rgba(255,255,255,0.05); max-width: 220px;">
+          </div>
         </div>
         <div class="col-md-8">
-          <p>
-            Sou um desenvolvedor apaixonado por tecnologia, inovação e resolução de problemas. Tenho experiência sólida em desenvolvimento e análise de dados, criando soluções práticas, funcionais e orientadas a resultados.
+          <p class="lead text-white-50">
+            Sou pós-graduando em <strong>Data Science e Analytics pela USP/Esalq</strong>, focado em transformar dados brutos e volumosos em vantagens competitivas de mercado através de arquiteturas modernas e automações ponta a ponta.
           </p>
           <p>
-            Trabalho com tecnologias como <strong>Python, JavaScript, HTML, CSS, Bootstrap e Flask</strong>, além de ferramentas de dados como <strong>Pandas, SQL, Power BI, Athena, Glue, QuickSight e SAS</strong>.
+            Minha atuação profissional concentra-se no desenvolvimento de pipelines avançados de captação de dados (Web Scraping escalável), limpeza, tratamento estatístico e modelagem de precificação. Desenvolvo ferramentas de inteligência analítica que realizam o mapeamento completo e preciso de dinâmicas mercadológicas regionais.
           </p>
-          <p>
-            Também atuo com <strong>gestão de projetos</strong> seguindo as metodologias <strong>PMBOK e Scrum</strong>, o que me permite colaborar de forma eficiente em equipes ágeis e entregar projetos com qualidade e foco no usuário.
+          <p class="mb-0">
+            Combinando sólida experiência em infraestrutura de banco de dados SQL estruturado e programação voltada para microsserviços, tenho como foco principal a entrega de soluções SaaS robustas, que automatizam tarefas complexas de monitoramento e análise preditiva de negócios.
           </p>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Habilidades -->
   <section id="habilidades" class="py-5">
-    <div class="container">
-      <h2 class="section-title">Habilidades</h2>
-      <div class="row text-center">
+    <div class="container py-4">
+      <h2 class="section-title">Expertise Técnica</h2>
+      <div class="row g-4 text-center mt-2">
         <div class="col-md-4">
-          <h4 class="text-warning">Desenvolvimento</h4>
-          <p>C#, HTML, CSS, JavaScript, Angular, Flask</p>
-        </div>
-        <div class="col-md-4">
-          <h4 class="text-warning">Análise de Dados</h4>
-          <p>Python, Pandas, SQL, Power BI, Athena, Glue, QuickSight, SAS</p>
-        </div>
-        <div class="col-md-4">
-          <h4 class="text-warning">Gestão de Projetos</h4>
-          <p>PMBOK, Scrum</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Portfólio -->
-  <section id="portfolio" class="py-5 bg-dark-section">
-    <div class="container">
-      <h2 class="section-title">Projetos</h2>
-      <div class="row g-4">
-        <div class="col-md-4">
-          <div class="card h-100">
-            <img src="https://source.unsplash.com/400x300/?dashboard,dark" class="card-img-top" alt="Projeto 1">
-            <div class="card-body">
-              <h5 class="card-title text-warning">Dashboard Financeiro</h5>
-              <p class="card-text">Visualização de dados interativa com Python e Plotly.</p>
-              <a href="#" class="btn btn-outline-dark">Ver Projeto</a>
+          <div class="p-4 rounded-3 h-100" style="background-color: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.03);">
+            <i class="fa-solid fa-gears text-warning mb-3" style="font-size: 2rem;"></i>
+            <h4 class="h5 mb-3 text-warning">Engenharia & Automação</h4>
+            <div class="d-flex flex-wrap justify-content-center">
+              <span class="tech-badge">Python</span>
+              <span class="tech-badge">Playwright</span>
+              <span class="tech-badge">Web Scraping</span>
+              <span class="tech-badge">Pipelines ETL</span>
+              <span class="tech-badge">Bots Automáticos</span>
             </div>
           </div>
         </div>
         <div class="col-md-4">
-          <div class="card h-100">
-            <img src="https://source.unsplash.com/400x300/?game,code" class="card-img-top" alt="Projeto 2">
-            <div class="card-body">
-              <h5 class="card-title text-warning">Jogo 2D com Python</h5>
-              <p class="card-text">Engine própria com edição visual e suporte a física.</p>
-              <a href="#" class="btn btn-outline-dark">Ver Projeto</a>
+          <div class="p-4 rounded-3 h-100" style="background-color: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.03);">
+            <i class="fa-solid fa-chart-line text-warning mb-3" style="font-size: 2rem;"></i>
+            <h4 class="h5 mb-3 text-warning">Ciência de Dados & Analytics</h4>
+            <div class="d-flex flex-wrap justify-content-center">
+              <span class="tech-badge">Pandas</span>
+              <span class="tech-badge">Modelagem de Dados</span>
+              <span class="tech-badge">Análise Estatística</span>
+              <span class="tech-badge">Precificação Preditiva</span>
+              <span class="tech-badge">Data Cleaning</span>
             </div>
           </div>
         </div>
         <div class="col-md-4">
-          <div class="card h-100">
-            <img src="https://source.unsplash.com/400x300/?calendar,app,dark" class="card-img-top" alt="Projeto 3">
-            <div class="card-body">
-              <h5 class="card-title text-warning">Agenda MEI</h5>
-              <p class="card-text">Plataforma de controle financeiro e agendamento.</p>
-              <a href="#" class="btn btn-outline-dark">Ver Projeto</a>
+          <div class="p-4 rounded-3 h-100" style="background-color: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.03);">
+            <i class="fa-solid fa-database text-warning mb-3" style="font-size: 2rem;"></i>
+            <h4 class="h5 mb-3 text-warning">Infraestrutura & Bancos</h4>
+            <div class="d-flex flex-wrap justify-content-center">
+              <span class="tech-badge">SQL Avançado</span>
+              <span class="tech-badge">Modelagem Relacional</span>
+              <span class="tech-badge">Otimização de Queries</span>
+              <span class="tech-badge">Agregações Complexas</span>
+              <span class="tech-badge">Git & Versionamento</span>
             </div>
           </div>
         </div>
@@ -157,21 +299,91 @@
     </div>
   </section>
 
-  <!-- Contato -->
+  <section id="portfolio" class="py-5 bg-alternate">
+    <div class="container py-4">
+      <h2 class="section-title">Projetos em Destaque</h2>
+      <div class="row g-4 mt-2">
+        
+        <div class="col-md-4">
+          <div class="card-project d-flex flex-column justify-content-between">
+            <div>
+              <div class="project-icon"><i class="fa-solid fa-city"></i></div>
+              <h3>DataCasa Solutions</h3>
+              <p>Desenvolvimento de uma plataforma SaaS de inteligência e inteligência de mercado voltada ao setor imobiliário. A ferramenta realiza a consolidação e análise automatizada de anúncios em larga escala para extração de tendências comerciais e oportunidades de investimento.</p>
+            </div>
+            <div class="mt-3">
+              <span class="badge bg-secondary mb-3 me-1">SaaS</span>
+              <span class="badge bg-secondary mb-3 me-1">Market Intelligence</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-4">
+          <div class="card-project d-flex flex-column justify-content-between">
+            <div>
+              <div class="project-icon"><i class="fa-solid fa-diagram-project"></i></div>
+              <h3>Pipeline ETL & Extração Dedicada</h3>
+              <p>Arquitetura de dados parametrizada por cidades capaz de gerenciar e atualizar de forma autônoma mais de 10.000 registros a cada hora. O motor utiliza Playwright e Pandas para limpeza profunda, auditoria de URLs ativas e inteligência para diferenciar listagens diretas ("particulares") de agências imobiliárias, extraindo precisamente IPTU e condomínios.</p>
+            </div>
+            <div class="mt-3">
+              <span class="badge bg-secondary mb-3 me-1">Playwright</span>
+              <span class="badge bg-secondary mb-3 me-1">Pandas</span>
+              <span class="badge bg-secondary mb-3">SQL</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-4">
+          <div class="card-project d-flex flex-column justify-content-between">
+            <div>
+              <div class="project-icon"><i class="fa-solid fa-bolt"></i></div>
+              <h3>Ecosistema de Alertas e Mensageria</h3>
+              <p>Criação de microsserviço assíncrono integrado a bots de comunicação para disparo de oportunidades críticas de mercado e monitoramento operacional. O sistema opera sob rotinas programadas diárias, convertendo logs analíticos complexos em alertas imediatos e funcionais na ponta.</p>
+            </div>
+            <div class="mt-3">
+              <span class="badge bg-secondary mb-3 me-1">Telegram API</span>
+              <span class="badge bg-secondary mb-3 me-1">Automation</span>
+              <span class="badge bg-secondary mb-3">Cron Jobs</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
   <section id="contato" class="py-5">
-    <div class="container">
-      <h2 class="section-title">Contato</h2>
-      <div class="text-center">
-        <p>Email: <a href="mailto:orlando2030@gmail.com" class="text-warning">orlando2030@gmail.com</a></p>
-        <p>LinkedIn: <a href="https://www.linkedin.com/in/orlando-santos-de-oliveira-aa71a827/" target="_blank" class="text-warning">Orlando-Santos-De-Oliveira</a></p>
-        <p>GitHub: <a href="https://github.com/Orlando2030" target="_blank" class="text-warning">Orlando2030</a></p>
+    <div class="container py-4">
+      <h2 class="section-title">Vamos Conectar?</h2>
+      <p class="text-center text-muted mb-5" style="max-width: 600px; margin: 0 auto;">Estou sempre aberto a discussões sobre arquitetura de dados, engenharia analítica, novas automações ou oportunidades de projetos inovadores.</p>
+      
+      <div class="row justify-content-center text-center g-4">
+        <div class="col-6 col-md-3">
+          <a href="mailto:orlando2030@gmail.com" class="btn-custom-outline w-100 py-3">
+            <i class="fa-solid fa-envelope fa-2x mb-2 d-block"></i>
+            <span>E-mail</span>
+          </a>
+        </div>
+        <div class="col-6 col-md-3">
+          <a href="https://www.linkedin.com/in/orlando-santos-de-oliveira/" target="_blank" class="btn-custom-outline w-100 py-3">
+            <i class="fa-brands fa-linkedin fa-2x mb-2 d-block"></i>
+            <span>LinkedIn</span>
+          </a>
+        </div>
+        <div class="col-6 col-md-3">
+          <a href="https://github.com/Orlando2030" target="_blank" class="btn-custom-outline w-100 py-3">
+            <i class="fa-brands fa-github fa-2x mb-2 d-block"></i>
+            <span>GitHub</span>
+          </a>
+        </div>
       </div>
     </div>
   </section>
 
-  <!-- Footer -->
-  <footer class="text-center py-3">
-    <p class="mb-0">&copy; 2025 Orlando Santos de Oliveira. Todos os direitos reservados.</p>
+  <footer class="text-center py-4">
+    <div class="container">
+      <p class="mb-0">&copy; 2026 Orlando Santos de Oliveira. Desenvolvido com foco em Ciência de Dados & Analytics.</p>
+    </div>
   </footer>
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
