@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -20,8 +19,8 @@
       --bg-card: #1e293b;       /* Slate 800 - Fundo dos cards */
       --accent: #f59e0b;        /* Amber 500 - Destaque tecnológico */
       --accent-hover: #d97706;  /* Amber 600 */
-      --text-main: #f8fafc;     /* Slate 50 */
-      --text-muted: #94a3b8;    /* Slate 400 */
+      --text-main: #f8fafc;     /* Slate 50 - Texto Principal (Branco) */
+      --text-muted: #cbd5e1;    /* Slate 300 - Cinza claro CORRIGIDO PARA MAIOR CONTRASTE */
     }
 
     body {
@@ -167,6 +166,9 @@
       border-color: rgba(245, 158, 11, 0.25);
       box-shadow: 0 10px 30px -15px rgba(0, 0, 0, 0.5);
     }
+    .card-project p {
+      color: var(--text-muted); /* Garantindo contraste no texto do projeto */
+    }
     .project-icon {
       font-size: 2.5rem;
       color: var(--accent);
@@ -268,13 +270,13 @@
           <img src="https://github.com/orlando2030.png" alt="Orlando Santos de Oliveira" class="img-fluid rounded-circle border border-secondary shadow-lg p-2" style="background-color: rgba(255,255,255,0.05); max-width: 220px;">
         </div>
         <div class="col-md-8">
-          <p class="lead text-white-50">
+          <p class="lead" style="color: var(--text-muted);">
             Sou um profissional dedicado a transformar dados complexos em soluções estratégicas, combinando visão analítica de alto nível com forte capacidade de engenharia de software corporativa.
           </p>
-          <p>
+          <p style="color: var(--text-muted);">
             Minha atuação principal está ancorada na área de <strong>Data Science e Analytics</strong>. Construo a arquitetura de dados de ponta a ponta: desenvolvo pipelines avançados de Web Scraping, executo limpezas estruturais de alto volume e crio modelos de precificação focados em inteligência de mercado imobiliário e corporativo.
           </p>
-          <p class="mb-0">
+          <p class="mb-0" style="color: var(--text-muted);">
             Com sólida experiência em bancos de dados relacionais e na liderança de projetos orientados a resultados, meu principal objetivo é garantir que as áreas de negócio possuam dados limpos, automatizados e acionáveis para sustentar decisões estratégicas em níveis executivos.
           </p>
         </div>
@@ -294,7 +296,7 @@
             <div class="timeline-item">
               <div class="timeline-title">MBA em Data Science e Analytics</div>
               <div class="timeline-subtitle">USP/Esalq</div>
-              <p class="text-muted mt-2 mb-0">Em andamento</p>
+              <p class="mt-2 mb-0" style="color: var(--text-muted);">Em andamento</p>
             </div>
             <div class="timeline-item">
               <div class="timeline-title">Especialização em Gerenciamento de Projetos</div>
@@ -318,23 +320,23 @@
             <ul class="list-unstyled mb-0">
               <li class="mb-3 border-bottom border-secondary pb-3">
                 <strong class="d-block text-white">Certified SCRUM Master - CSM</strong>
-                <span class="text-muted small">Scrum Alliance</span>
+                <span style="color: var(--text-muted); font-size: 0.9rem;">Scrum Alliance</span>
               </li>
               <li class="mb-3 border-bottom border-secondary pb-3">
                 <strong class="d-block text-white">REST com ASP.NET Core WebAPI</strong>
-                <span class="text-muted small">desenvolvedor.io</span>
+                <span style="color: var(--text-muted); font-size: 0.9rem;">desenvolvedor.io</span>
               </li>
               <li class="mb-3 border-bottom border-secondary pb-3">
                 <strong class="d-block text-white">Dominando o ASP.NET MVC Core</strong>
-                <span class="text-muted small">desenvolvedor.io</span>
+                <span style="color: var(--text-muted); font-size: 0.9rem;">desenvolvedor.io</span>
               </li>
               <li class="mb-3 border-bottom border-secondary pb-3">
                 <strong class="d-block text-white">Desenvolvimento SPA com Angular</strong>
-                <span class="text-muted small">desenvolvedor.io</span>
+                <span style="color: var(--text-muted); font-size: 0.9rem;">desenvolvedor.io</span>
               </li>
               <li class="mb-0">
                 <strong class="d-block text-white">Iniciando com ASP.NET Core</strong>
-                <span class="text-muted small">desenvolvedor.io</span>
+                <span style="color: var(--text-muted); font-size: 0.9rem;">desenvolvedor.io</span>
               </li>
             </ul>
           </div>
@@ -392,7 +394,7 @@
   <section id="inovacao" class="py-5">
     <div class="container py-4">
       <h2 class="section-title">Laboratório & Inovação</h2>
-      <p class="text-center text-muted mb-5" style="max-width: 700px; margin: 0 auto;">
+      <p class="text-center mb-5" style="max-width: 700px; margin: 0 auto; color: var(--text-muted);">
         Além do ecossistema de dados corporativo, dedico-me à pesquisa e aplicação prática de tecnologias emergentes. Desenvolvo lógicas complexas no ambiente de jogos e integro APIs generativas para a criação de assistentes inteligentes via linha de comando.
       </p>
 
@@ -402,7 +404,7 @@
           <div class="card-feature text-center h-100" style="border-top: 4px solid var(--accent);">
             <i class="fa-solid fa-network-wired text-warning mb-3" style="font-size: 2.5rem;"></i>
             <h3 class="h4 mb-3">Inteligência Artificial</h3>
-            <p class="text-muted small mb-4">Integração de Modelos de Linguagem e automação de fluxos conversacionais via terminal e scripts independentes.</p>
+            <p class="small mb-4" style="color: var(--text-muted);">Integração de Modelos de Linguagem e automação de fluxos conversacionais via terminal e scripts independentes.</p>
             <div class="d-flex flex-wrap justify-content-center">
               <span class="tech-badge">Gemini API</span>
               <span class="tech-badge">IA Generativa</span>
@@ -417,7 +419,7 @@
           <div class="card-feature text-center h-100" style="border-top: 4px solid var(--accent);">
             <i class="fa-solid fa-gamepad text-warning mb-3" style="font-size: 2.5rem;"></i>
             <h3 class="h4 mb-3">Game Development</h3>
-            <p class="text-muted small mb-4">Desenvolvimento de mecânicas físicas, colisões, arquitetura de sistemas e design de jogos 2D/3D utilizando motores estruturados.</p>
+            <p class="small mb-4" style="color: var(--text-muted);">Desenvolvimento de mecânicas físicas, colisões, arquitetura de sistemas e design de jogos 2D/3D utilizando motores estruturados.</p>
             <div class="d-flex flex-wrap justify-content-center">
               <span class="tech-badge">Unity 5</span>
               <span class="tech-badge">C#</span>
@@ -451,13 +453,13 @@
           </div>
         </div>
 
-        <!-- Projeto 2 -->
+        <!-- Projeto 2 (ATUALIZADO) -->
         <div class="col-md-4">
           <div class="card-project d-flex flex-column justify-content-between">
             <div>
               <div class="project-icon"><i class="fa-solid fa-diagram-project"></i></div>
-              <h3>Pipeline ETL Dedicado</h3>
-              <p>Arquitetura autônoma gerenciando mais de 10.000 registros de imóveis por hora. Utiliza Playwright para varredura, auditoria de URLs e extração cirúrgica de valores (IPTU/Condomínio), distinguindo anúncios diretos de imobiliárias.</p>
+              <h3>Pipeline ETL de Larga Escala</h3>
+              <p>Arquitetura autônoma responsável pela captação e processamento de <strong>mais de 150.000 registros imobiliários anuais</strong> a partir de marketplaces. Utiliza Playwright para auditar URLs ativas e realizar extração cirúrgica de características dos imóveis e dados financeiros (IPTU/Condomínio). O motor analítico classifica e distingue automaticamente anúncios de particulares daqueles vinculados a imobiliárias.</p>
             </div>
             <div class="mt-3">
               <span class="badge bg-secondary mb-3 me-1">Playwright</span>
